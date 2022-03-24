@@ -11,6 +11,11 @@ public class Pokemon : BasePokemon
     }
     public void Attacked(int attack)
     {
-        
+        if(attack <= 0)
+        {
+            return;
+        }
+
+        hp -= attack;
     }
 }
