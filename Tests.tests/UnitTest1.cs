@@ -13,7 +13,7 @@ public class Tests
     [Test]
     public void InterestWorks()
     {
-        var client = new Client(){IntrestRate = 100M, Debt = 10M};
+        var client = new Client(){IntrestRate = 1M, Debt = 10M};
         client.IncrementIntrest();
         Assert.AreEqual(client.Debt, 20M);
     }

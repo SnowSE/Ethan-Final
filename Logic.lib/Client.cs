@@ -19,6 +19,12 @@ public class Client : Person, IDisplay
 
     public void IncrementIntrest()
     {
-        throw new NotImplementedException();
+        if(IntrestRate <= 0)
+        {
+            return;
+        }
+
+        Debt = Debt + Debt * IntrestRate;
+        
     }
 }
