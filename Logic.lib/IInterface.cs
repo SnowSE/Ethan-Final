@@ -1,5 +1,5 @@
 ﻿namespace Logic.lib;
-public class IInterface
+public interface IDisplay
 {
     public void Display()
     {
