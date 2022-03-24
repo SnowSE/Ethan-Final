@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Logic.lib;
 
 namespace Tests.tests;
 
@@ -11,8 +12,29 @@ public class Tests
 
     [Test]
     
-    public void TestTyping()
+    public void TestAttack()
     {
-        Assert.AreEqual(10, 10);
+        var Tepig = new Pokemon(){HP = 100};
+        Tepig.Attacked(50);
+        Assert.AreEqual(Tepig.HP, 50);
     }
+
+    [Test]
+    
+    public void TestNegativeAttack()
+    {
+        var Tepig = new Pokemon(){HP = 100};
+        Tepig.Attacked(-50);
+        Assert.AreEqual(Tepig.HP, 100);
+    }
+
+    [Test]
+    
+    public void TestZeroAttack()
+    {
+        var Tepig = new Pokemon(){HP = 100};
+        Tepig.Attacked(0);
+        Assert.AreEqual(Tepig.HP, 100);
+    }
+
 }
