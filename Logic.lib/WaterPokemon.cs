@@ -2,9 +2,10 @@ namespace Logic.lib;
 
 public class WaterPokemon : Pokemon
 {
-    public WaterPokemon()
+    public WaterPokemon(string name)
     {
         Typing = Type.Water;
+        Name = name;
     }
     public override void Attack(Pokemon pokemon, int damage)
     {

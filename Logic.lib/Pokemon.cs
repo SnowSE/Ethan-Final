@@ -5,8 +5,16 @@ public class Pokemon : IPokemon
     public Pokemon()
     {
         Typing = Type.Normal;
-        HP = 200;
+        Max_HP = 200;
+        HP = Max_HP;
+    }
 
+    public Pokemon(string name)
+    {
+        Typing = Type.Normal;
+        Max_HP = 200;
+        HP = Max_HP;
+        Name = name;
     }
 
     public Type Typing
@@ -15,7 +23,7 @@ public class Pokemon : IPokemon
         set;
     }
 
-    public string Name { get; } = "MissingNo";
+    public string Name { get; set;} = "MissingNo";
 
     public int PokedexNum { get; } = -1;
 

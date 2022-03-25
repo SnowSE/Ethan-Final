@@ -127,8 +127,8 @@ public class Tests
 
     public void PokemonAttackingEachOther()
     {
-        var Ditto = new NormalPokemon();
-        var Bidoof = new NormalPokemon(){HP = 100, Typing = Type.Normal};
+        var Ditto = new NormalPokemon("Ditto");
+        var Bidoof = new NormalPokemon("Bidoof"){HP = 100, Typing = Type.Normal};
         Ditto.Attack(Bidoof, 50);
         Assert.AreEqual(Bidoof.HP,  50);
     }
@@ -137,8 +137,8 @@ public class Tests
 
     public void PokemonAttackingEachOtherWithResistance()
     {
-        var Litwick = new FirePokemon();
-        var Chimchar = new FirePokemon(){HP = 100};
+        var Litwick = new FirePokemon("Litwick");
+        var Chimchar = new FirePokemon("Chimchar"){HP = 100};
         Litwick.Attack(Chimchar, 50);
         Assert.AreEqual(Chimchar.HP,  75);
     }
@@ -147,9 +147,16 @@ public class Tests
 
     public void PokemonAttackingEachOtherWithWeakness()
     {
-        var Vaporeon = new WaterPokemon();
-        var Chimchar = new FirePokemon(){HP = 200};
+        var Vaporeon = new WaterPokemon("Vaporeon");
+        var Chimchar = new FirePokemon("Chimchar"){HP = 200};
         Vaporeon.Attack(Chimchar, 50);
         Assert.AreEqual(Chimchar.HP,  100);
+    }
+
+    [Test]
+
+    public void TrainerSetPokemon()
+    {
+
     }
 }
