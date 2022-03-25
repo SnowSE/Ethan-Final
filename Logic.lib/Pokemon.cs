@@ -10,7 +10,7 @@ public class Pokemon : BasePokemon
         get => hp;
         set => hp = value;
     }
-    public int Max_HP { get; set; }
+    public int Max_HP { get; set; } = 200;
 
     public void Attacked(int attack)
     {
@@ -19,11 +19,22 @@ public class Pokemon : BasePokemon
             return;
         }
 
-        hp -= attack;
+        HP -= attack;
     }
 
     public void Heal(int heal)
     {
-        throw new NotImplementedException();
+        if(heal <= 0)
+        {
+            return;
+        }
+
+        HP += heal;
+
+        if(HP > Max_HP)
+        {
+            HP = Max_HP;
+        }
+        
     }
 }
