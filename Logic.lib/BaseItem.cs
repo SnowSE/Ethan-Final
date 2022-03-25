@@ -2,10 +2,10 @@ namespace Logic.lib;
 
 public abstract class BaseItem : IItem
 {
-    public IItem.ItemType Item {get; set;}
+    public IItem.Strength strength {get; set;}
 
-    public void UseItem()
+    public virtual void UseItem(Pokemon pokemon)
     {
-        Item = IItem.ItemType.Used;
+        strength = IItem.Strength.Used;
     }
 }

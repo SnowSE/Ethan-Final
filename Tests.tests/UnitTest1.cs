@@ -72,4 +72,56 @@ public class Tests
         Tepig.Heal(50);
         Assert.AreEqual(Tepig.HP, 200);
     }
+
+    [Test]
+
+    public void UsingAPotion()
+    {
+        var _Item = new Potion(){strength = IItem.Strength.Basic};
+        var Tepig = new Pokemon(){HP = 50};
+        _Item.UseItem(Tepig);
+        Assert.AreEqual(Tepig.HP, 70);
+    }
+
+    [Test]
+
+    public void UsingASuperPotion()
+    {
+        var _Item = new Potion(){strength = IItem.Strength.Super};
+        var Tepig = new Pokemon(){HP = 50};
+        _Item.UseItem(Tepig);
+        Assert.AreEqual(Tepig.HP, 100);
+    }
+
+    [Test]
+
+    public void UsingAHyperPotion()
+    {
+        var _Item = new Potion(){strength = IItem.Strength.Hyper};
+        var Tepig = new Pokemon(){HP = 50, Max_HP = 300};
+        _Item.UseItem(Tepig);
+        Assert.AreEqual(Tepig.HP, 250);
+    }
+
+    [Test]
+
+    public void UsingAMaxPotion()
+    {
+        var _Item = new Potion(){strength = IItem.Strength.Max};
+        var Tepig = new Pokemon(){HP = 50, Max_HP = 700};
+        _Item.UseItem(Tepig);
+        Assert.AreEqual(Tepig.HP, 700);
+    }
+
+    [Test]
+
+    public void CantUseUsedPotion()
+    {
+         var _Item = new Potion(){strength = IItem.Strength.Used};
+        var Tepig = new Pokemon(){HP = 50, Max_HP = 100};
+        _Item.UseItem(Tepig);
+        Assert.AreEqual(Tepig.HP, 50);
+    }
+
+
 }

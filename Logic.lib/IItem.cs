@@ -2,14 +2,14 @@ namespace Logic.lib;
 
 public interface IItem
 {
-    public ItemType Item{get;}
+    public Strength strength{get;}
 
-    enum ItemType
+    enum Strength
     {
-        Potion,
-        XAttack,
-        XDefense,
-        Full_Heal,
+        Max,
+        Hyper,
+        Super,
+        Basic,
         Used
     }
 
