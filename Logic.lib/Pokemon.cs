@@ -56,7 +56,7 @@ public class Pokemon : IPokemon
 
     public virtual void Attack(Pokemon pokemon, int damage)
     {
-        
+        pokemon.Attacked(damage);
     }
    
 }
