@@ -12,7 +12,6 @@ public interface IPokemon
         Rock,
         Flying
     }
-
-
+    
 }
 
