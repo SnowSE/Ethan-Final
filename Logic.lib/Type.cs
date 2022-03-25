@@ -7,5 +7,6 @@ public enum Type
     Grass,
     Fighting,
     Rock,
-    Flying
+    Flying,
+    Normal
 }

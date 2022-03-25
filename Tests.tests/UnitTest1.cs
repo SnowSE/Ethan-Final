@@ -122,4 +122,34 @@ public class Tests
         _Item.UseItem(Tepig);
         Assert.AreEqual(Tepig.HP, 50);
     }
+
+    [Test]
+
+    public void PokemonAttackingEachOther()
+    {
+        var Ditto = new NormalPokemon();
+        var Bidoof = new NormalPokemon(){HP = 100, Typing = Type.Normal};
+        Ditto.Attack(Bidoof, 50);
+        Assert.AreEqual(Bidoof.HP,  50);
+    }
+
+    [Test]
+
+    public void PokemonAttackingEachOtherWithResistance()
+    {
+        var Litwick = new FirePokemon();
+        var Chimchar = new FirePokemon(){HP = 100};
+        Litwick.Attack(Chimchar, 50);
+        Assert.AreEqual(Chimchar.HP,  75);
+    }
+
+    [Test]
+
+    public void PokemonAttackingEachOtherWithWeakness()
+    {
+        var Vaporeon = new WaterPokemon();
+        var Chimchar = new FirePokemon(){HP = 200};
+        Vaporeon.Attack(Chimchar, 50);
+        Assert.AreEqual(Chimchar.HP,  100);
+    }
 }
