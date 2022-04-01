@@ -11,11 +11,16 @@ public class Trainer
         {
             try
             {
+                if(setPokemon == null)
+                {
+                    throw new Exception("No set Pokemon");
+                }
                 return setPokemon;
             }
             catch 
             {
-                return new Pokemon(){Max_HP = 0};
+                setPokemon = new Pokemon(){HP = 0};
+                return setPokemon;
             }
         }
         
@@ -28,4 +33,7 @@ public class Trainer
     public List<Pokemon> Party = new List<Pokemon>();
     public List<BaseItem> Bag = new List<BaseItem>();
 
+
+
 }
+

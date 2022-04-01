@@ -7,6 +7,7 @@ public class Pokemon : IPokemon
         Typing = Type.Normal;
         Max_HP = 200;
         HP = Max_HP;
+        Level = -1;
     }
 
     public Pokemon(string name)
@@ -17,13 +18,22 @@ public class Pokemon : IPokemon
         Name = name;
     }
 
+    public Pokemon(Type typing, string name, int PokedexNum, int _HP)
+    {
+        Typing = typing;
+        Max_HP = _HP;
+        HP = _HP;
+        this.PokedexNum = PokedexNum;
+        Name = name;
+    }
+
     public Type Typing
     {
         get;
         set;
     }
 
-    public string Name { get; set;} = "MissingNo";
+    public string Name { get; set; } = "MissingNo";
 
     public int PokedexNum { get; } = -1;
 
@@ -37,6 +47,20 @@ public class Pokemon : IPokemon
 
     public int Max_HP { get; set; } = 200;
 
+    private int level;
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+        private set
+        {
+            level = value;
+        }
+    }
+
+    public List<Move> Moves = new List<Move>();
     public void Attacked(int attack)
     {
         if (attack <= 0)
@@ -62,9 +86,9 @@ public class Pokemon : IPokemon
         }
     }
 
-    public virtual void Attack(Pokemon pokemon, int damage)
+    public virtual void Attack(Pokemon pokemon, Move move)
     {
-        pokemon.Attacked(damage);
+        move.Attack(Typing, pokemon);
     }
-   
+
 }

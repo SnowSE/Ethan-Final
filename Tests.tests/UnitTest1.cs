@@ -125,33 +125,33 @@ public class Tests
 
     [Test]
 
-    public void PokemonAttackingEachOther()
+    public void RevampNoMovesInMoveListAndAttack()
     {
-        var Ditto = new NormalPokemon("Ditto");
-        var Bidoof = new NormalPokemon("Bidoof"){HP = 100, Typing = Type.Normal};
-        Ditto.Attack(Bidoof, 50);
-        Assert.AreEqual(Bidoof.HP,  50);
+        
+    }
+    
+    [Test]
+
+    public void RevampAttackWithNormalMove()
+    {
+
     }
 
     [Test]
 
-    public void PokemonAttackingEachOtherWithResistance()
+    public void RevampAttackWithFireMove()
     {
-        var Litwick = new FirePokemon("Litwick");
-        var Chimchar = new FirePokemon("Chimchar"){HP = 100};
-        Litwick.Attack(Chimchar, 50);
-        Assert.AreEqual(Chimchar.HP,  75);
+        
     }
 
     [Test]
 
-    public void PokemonAttackingEachOtherWithWeakness()
+    public void RevampAttackWithWaterMove()
     {
-        var Vaporeon = new WaterPokemon("Vaporeon");
-        var Chimchar = new FirePokemon("Chimchar"){HP = 200};
-        Vaporeon.Attack(Chimchar, 50);
-        Assert.AreEqual(Chimchar.HP,  100);
+        
     }
+
+    
 
     [Test]
 
