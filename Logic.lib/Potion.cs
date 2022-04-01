@@ -2,6 +2,7 @@ namespace Logic.lib;
 
 public class Potion : BaseItem
 {
+    public int Uses {get; set;} = 1;
     public override void UseItem(Pokemon pokemon)
     {
         switch(strength)
@@ -21,6 +22,7 @@ public class Potion : BaseItem
             default:
             break;
         }
+        Uses--;
         base.UseItem(pokemon);
     }
 }

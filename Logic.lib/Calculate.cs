@@ -44,4 +44,10 @@ public static class Calculator
         }
         return 1;
     }
+
+    public static int RandomPokemon()
+    {
+        Random random = new Random();
+        return random.Next(0,5);
+    }
 }
