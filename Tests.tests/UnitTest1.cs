@@ -127,32 +127,23 @@ public class Tests
 
     public void RevampNoMovesInMoveListAndAttack()
     {
-        
+        var Heatran = new Pokemon(Type.Fire);
+        Heatran.Moves[0].Attack(Heatran.Typing, Heatran);
+        Assert.AreEqual(Heatran.HP, 200);
     }
     
     [Test]
 
     public void RevampAttackWithNormalMove()
     {
-
-    }
-
-    [Test]
-
-    public void RevampAttackWithFireMove()
-    {
-        
-    }
-
-    [Test]
-
-    public void RevampAttackWithWaterMove()
-    {
-        
+        var Heatran = new Pokemon(Type.Fire);
+        Heatran.Moves.Clear();
+        Heatran.Moves.Add(new PhysicalAttack(){Power = 50});
+        Heatran.Moves[0].Attack(Heatran.Typing, Heatran);
+        Assert.AreEqual(Heatran.HP, 150);
     }
 
     
-
     [Test]
 
     public void TrainerSetPokemon()
