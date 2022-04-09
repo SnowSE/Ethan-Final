@@ -2,9 +2,13 @@ namespace Logic.lib;
 
 public class Potion : BaseItem
 {
-    public int Uses {get; set;} = 1;
+    
     public override void UseItem(Pokemon pokemon)
     {
+        if(Uses <= 0)
+        {
+            base.UseItem(pokemon);
+        }
         switch(strength)
         {
             case Strength.Max:
@@ -23,6 +27,10 @@ public class Potion : BaseItem
             break;
         }
         Uses--;
-        base.UseItem(pokemon);
+    }
+
+    public override string ToString()
+    {
+        return $"{strength} Potion";
     }
 }

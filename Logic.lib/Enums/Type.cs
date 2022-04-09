@@ -8,5 +8,16 @@ public enum Type
     Fighting,
     Rock,
     Flying,
-    Normal
+    Normal,
+    Ice, 
+    Ground, 
+    Dark, 
+    Fairy, 
+    Electric, 
+    Psychic, 
+    Steel,
+    Bug,
+    Dragon, 
+    Ghost,
+    Poison
 }

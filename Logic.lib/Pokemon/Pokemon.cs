@@ -43,7 +43,7 @@ public class Pokemon : IPokemon
 
     public string Name { get; set; } = "MissingNo";
 
-    public int PokedexNum { get; } = -1;
+    public int PokedexNum { get; set;} = -1;
 
     private int hp;
 
