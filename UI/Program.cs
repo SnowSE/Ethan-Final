@@ -15,47 +15,59 @@ public class Program
         var trainer = new Trainer();
         var fighter = new Trainer();
 
-        var firstChoice = GetValue.GetInt("Do you want to make a pokemon and add it to a file on the computer? [0], View the pokemon [1], Or would you like to fight [2]", 0, 2);
-
-        if (firstChoice == 2)
+        while (true)
         {
-            while (trainer.SetPokemon.HP > 0 && fighter.SetPokemon.HP > 0)
+
+            var firstChoice = GetValue.GetInt("[0] Make a pokemon\n[1] View the pokemon\n[2] Fight\n[3] Finish", 0, 3);
+
+
+
+            if (firstChoice == 2)
             {
-                Console.WriteLine($"The pokemon you have sent out is {trainer.SetPokemon.Name}");
-                var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
-                switch (num)
+                while (trainer.SetPokemon.HP > 0 && fighter.SetPokemon.HP > 0)
                 {
-                    case 0:
-                        PlayerTurn.Attack(trainer, fighter.SetPokemon);
-                        break;
-                    case 1:
-                        PlayerTurn.ChangePokemon(trainer);
-                        break;
-                    case 2:
-                        PlayerTurn.UseItem(trainer);
-                        break;
-                    case 3:
-                        return;
+                    Console.WriteLine($"The pokemon you have sent out is {trainer.SetPokemon.Name}");
+                    var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
+                    switch (num)
+                    {
+                        case 0:
+                            PlayerTurn.Attack(trainer, fighter.SetPokemon);
+                            break;
+                        case 1:
+                            PlayerTurn.ChangePokemon(trainer);
+                            break;
+                        case 2:
+                            PlayerTurn.UseItem(trainer);
+                            break;
+                        case 3:
+                            return;
+                    }
                 }
             }
-        }
-        else if(firstChoice == 0)
-        {
-            var Pokemons = Commands.PokemonDeserialize();
-
-            var pokemon = PokemonFactory.Create();
-
-            Pokemons.Add(pokemon);
-
-            Commands.PokemonSerialize(Pokemons);
-        }
-        else
-        {
-            var Pokemons = Commands.PokemonDeserialize();
-
-            foreach(var pokemon in Pokemons)
+            else if (firstChoice == 0)
             {
-                Console.WriteLine($"{pokemon.PokedexNum}: {pokemon.Name}, {pokemon.HP}Hp, Type = {pokemon.Typing}");
+                var Pokemons = Commands.PokemonDeserialize();
+
+                var pokemon = PokemonFactory.Create();
+
+                Pokemons.Add(pokemon);
+
+                Commands.PokemonSerialize(Pokemons);
+            }
+            else if( firstChoice == 1)
+            {
+                var Pokemons = Commands.PokemonDeserialize();
+
+                foreach (var pokemon in Pokemons)
+                {
+                    Console.WriteLine($"{pokemon.PokedexNum}: {pokemon.Name}, {pokemon.HP}Hp, Type = {pokemon.Typing}");
+                }
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Have a nice day!");
+                return;
             }
         }
     }
