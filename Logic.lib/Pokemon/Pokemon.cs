@@ -98,9 +98,9 @@ public class Pokemon : IPokemon
         }
     }
 
-    public virtual void Attack(Pokemon pokemon, Move move)
+    public virtual void Attack(Pokemon OpponetPokemon, Move move)
     {
-        move.Attack(Typing, pokemon);
+        move.Attack(Typing, OpponetPokemon, 1);
     }
 
 }

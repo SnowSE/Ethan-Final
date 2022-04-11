@@ -2,10 +2,11 @@ namespace Logic.lib;
 
 public class Trainer
 {
+    public string Log{get; set;} = "";
 
     public Trainer()
     {
-        
+
         Party.Add(new Pokemon(Type.Fire, "Monferno", 391, 200));
         Party.Add(new Pokemon(Type.Water, "Prinplup", 394, 200));
         Party.Add(new Pokemon(Type.Flying, "Chatot", 441, 200));
@@ -16,9 +17,8 @@ public class Trainer
         SetPokemon = Party[Calculator.RandomPokemon()];
 
         Bag.Add(new Potion() { strength = Strength.Hyper, Uses = 10 });
-        
+
     }
-    public string Name { get; }
 
     private Pokemon setPokemon;
     public Pokemon SetPokemon
@@ -49,6 +49,32 @@ public class Trainer
     public List<Pokemon> Party = new List<Pokemon>();
     public List<BaseItem> Bag = new List<BaseItem>();
 
+    public void Turn(Trainer opponet)
+    {
+        while (this.SetPokemon.HP > 0 && opponet.SetPokemon.HP > 0)
+        {
+            Console.WriteLine($"The pokemon you have sent out is {SetPokemon.Name}");
+            var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
+            switch (num)
+            {
+                case 0:
+                    var mod = PlayerTurn.Attack(this, opponet.SetPokemon);
+                    if(mod == 2)
+                    {
+                        Log += "That Move was Super Effective!!";
+                    }
+                    break;
+                case 1:
+                    PlayerTurn.ChangePokemon(this);
+                    break;
+                case 2:
+                    PlayerTurn.UseItem(this);
+                    break;
+                case 3:
+                    return;
+            }
+        }
+    }
 
 
 }

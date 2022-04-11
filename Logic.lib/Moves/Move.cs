@@ -56,7 +56,7 @@ public abstract class Move
         }
     }
 
-    public abstract void Attack(Type pokemonType, Pokemon attackedPokemon);
+    public abstract void Attack(Type pokemonType, Pokemon attackedPokemon, int Effectivness);
 
     
 }

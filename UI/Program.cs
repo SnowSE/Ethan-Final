@@ -24,25 +24,7 @@ public class Program
 
             if (firstChoice == 2)
             {
-                while (trainer.SetPokemon.HP > 0 && fighter.SetPokemon.HP > 0)
-                {
-                    Console.WriteLine($"The pokemon you have sent out is {trainer.SetPokemon.Name}");
-                    var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
-                    switch (num)
-                    {
-                        case 0:
-                            PlayerTurn.Attack(trainer, fighter.SetPokemon);
-                            break;
-                        case 1:
-                            PlayerTurn.ChangePokemon(trainer);
-                            break;
-                        case 2:
-                            PlayerTurn.UseItem(trainer);
-                            break;
-                        case 3:
-                            return;
-                    }
-                }
+                
             }
             else if (firstChoice == 0)
             {

@@ -2,7 +2,7 @@ namespace Logic.lib;
 
 public static class PlayerTurn
 {
-    public static void Attack(Trainer trainer, Pokemon attackedPokemon)
+    public static double Attack(Trainer trainer, Pokemon attackedPokemon)
     {
         int counter = 0;
         //This will be console dependent
@@ -11,8 +11,15 @@ public static class PlayerTurn
             Console.WriteLine($"{counter}: {move.Name}");
             counter++;
         }
+        
 
-        trainer.SetPokemon.Moves[GetValue.GetInt("Please choose the move to use", 0, trainer.SetPokemon.Moves.Count)].Attack(trainer.SetPokemon.Typing, attackedPokemon);
+        var ChosenMove = trainer.SetPokemon.Moves[GetValue.GetInt("Please choose the move to use", 0, trainer.SetPokemon.Moves.Count)];
+
+        var Modifier = Calculator.CalculateTypeEffectiveness(ChosenMove.MoveType, attackedPokemon.Typing);
+
+        ChosenMove.Attack(trainer.SetPokemon.Typing, attackedPokemon, (int)Modifier);
+
+        return Modifier;
     }
 
     public static void ChangePokemon(Trainer trainer)

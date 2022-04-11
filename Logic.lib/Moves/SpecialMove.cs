@@ -6,7 +6,7 @@ public class SpecialMove : Move
 
     public int probability {get; set;}
 
-    public override void Attack(Type pokemonType, Pokemon attackedPokemon)
+    public override void Attack(Type pokemonType, Pokemon attackedPokemon, int Effectivness)
     {
         attackedPokemon.Attacked((int)(Power * Calculator.CalculateTypeEffectiveness(pokemonType, attackedPokemon.Typing)));
     }
