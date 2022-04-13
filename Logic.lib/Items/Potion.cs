@@ -2,7 +2,10 @@ namespace Logic.lib;
 
 public class Potion : BaseItem
 {
-    
+    public Potion(int Uses)
+    {
+        this.Uses = Uses;
+    }
     public override void UseItem(Pokemon pokemon)
     {
         if(Uses <= 0)

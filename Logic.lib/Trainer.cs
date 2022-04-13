@@ -2,8 +2,6 @@ namespace Logic.lib;
 
 public class Trainer
 {
-    public string Log{get; set;} = "";
-
     public Trainer()
     {
 
@@ -16,7 +14,7 @@ public class Trainer
 
         SetPokemon = Party[Calculator.RandomPokemon()];
 
-        Bag.Add(new Potion() { strength = Strength.Hyper, Uses = 10 });
+        Bag.Add(new Potion(10) { strength = Strength.Hyper});
 
     }
 
@@ -53,16 +51,16 @@ public class Trainer
     {
         while (this.SetPokemon.HP > 0 && opponet.SetPokemon.HP > 0)
         {
-            Console.WriteLine($"The pokemon you have sent out is {SetPokemon.Name}");
+            Console.Clear();
+            Console.WriteLine($"The pokemon you have sent out is {SetPokemon.Name} {SetPokemon.HP}/{SetPokemon.Max_HP}");
+            Console.CursorTop += 19;
+            Console.WriteLine($"Your opponent has sent out {opponet.SetPokemon.Name} {opponet.SetPokemon.HP}/{opponet.SetPokemon.Max_HP}HP");
+            Console.CursorTop = 3;
             var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
             switch (num)
             {
                 case 0:
-                    var mod = PlayerTurn.Attack(this, opponet.SetPokemon);
-                    if(mod == 2)
-                    {
-                        Log += "That Move was Super Effective!!";
-                    }
+                    PlayerTurn.Attack(this, opponet.SetPokemon);
                     break;
                 case 1:
                     PlayerTurn.ChangePokemon(this);

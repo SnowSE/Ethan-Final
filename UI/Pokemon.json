@@ -1,1 +1,34 @@
-[{"Typing":0,"Name":"Chimchar","PokedexNum":390,"HP":40,"Max_HP":40,"Level":-1},{"Typing":11,"Name":"Manectric","PokedexNum":310,"HP":100,"Max_HP":100,"Level":-1},{"Typing":17,"Name":"Ekans","PokedexNum":23,"HP":35,"Max_HP":35,"Level":-1},{"Typing":1,"Name":"Squirtle","PokedexNum":7,"HP":40,"Max_HP":40,"Level":-1}]
+[
+    {
+        "Typing": 0,
+        "Name": "Chimchar",
+        "PokedexNum": 390,
+        "HP": 40,
+        "Max_HP": 40,
+        "Level": -1
+    },
+    {
+        "Typing": 11,
+        "Name": "Manectric",
+        "PokedexNum": 310,
+        "HP": 100,
+        "Max_HP": 100,
+        "Level": -1
+    },
+    {
+        "Typing": 17,
+        "Name": "Ekans",
+        "PokedexNum": 23,
+        "HP": 35,
+        "Max_HP": 35,
+        "Level": -1
+    },
+    {
+        "Typing": 1,
+        "Name": "Squirtle",
+        "PokedexNum": 7,
+        "HP": 40,
+        "Max_HP": 40,
+        "Level": -1
+    }
+]

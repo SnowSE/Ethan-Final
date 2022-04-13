@@ -24,27 +24,15 @@ public class Program
 
             if (firstChoice == 2)
             {
-                
+                trainer.Turn(fighter);
             }
             else if (firstChoice == 0)
             {
-                var Pokemons = Commands.PokemonDeserialize();
-
-                var pokemon = PokemonFactory.Create();
-
-                Pokemons.Add(pokemon);
-
-                Commands.PokemonSerialize(Pokemons);
+                Pokedex.AddPokemon();
             }
             else if( firstChoice == 1)
             {
-                var Pokemons = Commands.PokemonDeserialize();
-
-                foreach (var pokemon in Pokemons)
-                {
-                    Console.WriteLine($"{pokemon.PokedexNum}: {pokemon.Name}, {pokemon.HP}Hp, Type = {pokemon.Typing}");
-                }
-                Console.ReadLine();
+                Pokedex.ViewPokedex();
             }
             else
             {
