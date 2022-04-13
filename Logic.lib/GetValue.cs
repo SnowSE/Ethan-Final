@@ -1,15 +1,21 @@
+using System;
+
 namespace Logic.lib;
 
 public static class GetValue
 {
-    public static int GetInt(string Prompt, int min, int max)
+    public static int GetInt(string Prompt, int min, int max, int cursorTop = 0)
     {
         while (true)
         {
+            Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
+            Console.WriteLine("                                                        \n\n\n");
+            Console.CursorTop -= 4;
             try
             {
                 var num = int.Parse(Console.ReadLine());
+                
                 if (num >= min && num <= max)
                 {
                     return num;

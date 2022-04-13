@@ -13,7 +13,7 @@ public static class PlayerTurn
         }
         
 
-        var ChosenMove = trainer.SetPokemon.Moves[GetValue.GetInt("Please choose the move to use", 0, trainer.SetPokemon.Moves.Count)];
+        var ChosenMove = trainer.SetPokemon.Moves[GetValue.GetInt("Please choose the move to use", 0, trainer.SetPokemon.Moves.Count, Console.CursorTop)];
 
         var Modifier = Calculator.CalculateTypeEffectiveness(ChosenMove.MoveType, attackedPokemon.Typing);
 
@@ -45,11 +45,11 @@ public static class PlayerTurn
         //This will be console dependent
         foreach(var pokemon in trainer.Party)
         {
-            Console.WriteLine($"{counter}: {pokemon.Name} {pokemon.HP}hp/{pokemon.Max_HP}hp");
+            Console.WriteLine($"{counter}: {pokemon.Name} {pokemon.HP}hp/{pokemon.Max_HP}HP");
             counter++;
         }
 
-        trainer.SetPokemon = trainer.Party[GetValue.GetInt("Please choose your pokemon to switch to", 0, trainer.Party.Count)];
+        trainer.SetPokemon = trainer.Party[GetValue.GetInt("Please choose your pokemon to switch to", 0, trainer.Party.Count, Console.CursorTop)];
     }
 
     public static void UseItem(Trainer trainer)
@@ -62,6 +62,6 @@ public static class PlayerTurn
             counter++;
         }
 
-        trainer.Bag[GetValue.GetInt("Please choose the item to use", 0, trainer.Bag.Count)].UseItem(trainer.SetPokemon);
+        trainer.Bag[GetValue.GetInt("Please choose the item to use", 0, trainer.Bag.Count, Console.CursorTop)].UseItem(trainer.SetPokemon);
     }
 }

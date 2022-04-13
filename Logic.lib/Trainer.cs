@@ -52,11 +52,12 @@ public class Trainer
         while (this.SetPokemon.HP > 0 && opponet.SetPokemon.HP > 0)
         {
             Console.Clear();
+            Console.CursorTop = 1;
             Console.WriteLine($"The pokemon you have sent out is {SetPokemon.Name} {SetPokemon.HP}/{SetPokemon.Max_HP}");
             Console.CursorTop += 19;
             Console.WriteLine($"Your opponent has sent out {opponet.SetPokemon.Name} {opponet.SetPokemon.HP}/{opponet.SetPokemon.Max_HP}HP");
             Console.CursorTop = 3;
-            var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3);
+            var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3, Console.CursorTop);
             switch (num)
             {
                 case 0:
@@ -69,6 +70,7 @@ public class Trainer
                     PlayerTurn.UseItem(this);
                     break;
                 case 3:
+                    Console.Clear();
                     return;
             }
         }
