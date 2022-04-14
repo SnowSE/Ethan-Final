@@ -32,11 +32,14 @@ public static class GetValue
         }
     }
 
-    public static Type GetType(string Prompt)
+    public static Type GetType(string Prompt, int cursorTop = 0)
     {
         while (true)
         {
+            Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
+            Console.WriteLine("                                                        \n\n\n");
+            Console.CursorTop -= 4;
 
             var type = Console.ReadLine().ToLower();
             if (type == "normal")
@@ -118,11 +121,14 @@ public static class GetValue
         }
     }
 
-    public static string GetString(string Prompt, int minLength, int maxLength)
+    public static string GetString(string Prompt, int minLength, int maxLength, int cursorTop = 0)
     {
         while (true)
         {
+            Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
+            Console.WriteLine("                                                        \n\n\n");
+            Console.CursorTop -= 4;
             try
             {
                 var strang = Console.ReadLine();

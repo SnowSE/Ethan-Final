@@ -17,9 +17,18 @@ public static class Pokedex
     {
         var Pokemons = Commands.PokemonDeserialize();
 
-        foreach (var pokemon in Pokemons)
+        var SortPokemon = 
+            from pokemon in Pokemons
+            orderby pokemon.PokedexNum
+            select new
+            {
+                ID = pokemon.PokedexNum, 
+                Name = pokemon.Name
+            };
+
+        foreach (var pokemon in SortPokemon)
         {
-            Console.WriteLine($"{pokemon.PokedexNum}: {pokemon.Name}, {pokemon.HP}Hp, Type = {pokemon.Typing}");
+            Console.WriteLine($"{pokemon.ID}: {pokemon.Name}");
         }
         Console.ReadLine();
     }

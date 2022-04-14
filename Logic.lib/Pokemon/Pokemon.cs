@@ -70,7 +70,7 @@ public class Pokemon : IPokemon
 
     public List<Move> Moves = new List<Move>()
     {
-        new PhysicalAttack()     
+        new Move()     
     }
     ;
     public void Attacked(int attack)

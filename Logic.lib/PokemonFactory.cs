@@ -8,15 +8,18 @@ public static class PokemonFactory
         string name;
         int pokedexNum;
         int hp;
+        List<Move> moves;
 
-        type = GetValue.GetType("Please enter a type for you pokemon");
+        type = GetValue.GetType("Please enter a type for you pokemon", Console.CursorTop);
 
-        name = GetValue.GetString("Please choose a name for your Pokemon", 4, 12);
+        name = GetValue.GetString("Please choose a name for your Pokemon", 4, 12, Console.CursorTop);
 
-        pokedexNum = GetValue.GetInt("Enter the Pokemons pokedex number", 1, 906);
+        pokedexNum = GetValue.GetInt("Enter the Pokemons pokedex number", 1, 906, Console.CursorTop);
 
-        hp = GetValue.GetInt("Enter the HP of the Pokemon", 1, 714);
+        hp = GetValue.GetInt("Enter the HP of the Pokemon", 1, 714, Console.CursorTop);
 
-        return new Pokemon(type, name, pokedexNum, hp);
+        moves = MovesFactory.Create();
+
+        return new Pokemon(type, name, pokedexNum, hp){Moves = moves};
     }
 }

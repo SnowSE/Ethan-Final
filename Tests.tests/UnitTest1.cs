@@ -138,7 +138,7 @@ public class Tests
     {
         var Heatran = new Pokemon(Type.Fire);
         Heatran.Moves.Clear();
-        Heatran.Moves.Add(new PhysicalAttack(){Power = 50});
+        Heatran.Moves.Add(new Move(){Power = 50});
         Heatran.Moves[0].Attack(Heatran.Typing, Heatran, 1);
         Assert.AreEqual(Heatran.HP, 150);
     }

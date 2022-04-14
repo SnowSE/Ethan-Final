@@ -1,11 +1,22 @@
 namespace Logic.lib;
 
-public abstract class Move 
+public class Move 
 {
     private string name = "Tackle";
     private int power = -1;
-    private int accuracy = -1;
     private Type moveType = Type.Normal;
+
+    public Move()
+    {
+
+    }
+
+    public Move(string newName, int newPower, Type newMoveType)
+    {
+        Name = newName;
+        Power = newPower;
+        MoveType = newMoveType;
+    }
 
     public string Name
     {
@@ -31,18 +42,6 @@ public abstract class Move
         }
     }
 
-    public int Accuracy
-    {   
-        get
-        {
-            return accuracy;
-        }
-        set
-        {
-            accuracy = value;
-        }
-    }
-
 
     public Type MoveType
     {
@@ -56,7 +55,8 @@ public abstract class Move
         }
     }
 
-    public abstract void Attack(Type pokemonType, Pokemon attackedPokemon, int Effectivness);
-
-    
+    public void Attack(Type pokemonType, Pokemon attackedPokemon, int Effectivness)
+    {
+        attackedPokemon.Attacked((int)(Power * Effectivness)); // reember 23
+    }    
 }
