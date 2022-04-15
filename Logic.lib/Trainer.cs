@@ -47,6 +47,26 @@ public class Trainer
     public List<Pokemon> Party = new List<Pokemon>();
     public List<BaseItem> Bag = new List<BaseItem>();
 
+    public bool PartyAlive 
+    {
+        get
+        {
+            int FaintedPokemon = 0;
+            foreach(var pokemon in Party)
+            {
+                if(pokemon.HP <= 0)
+                {
+                    FaintedPokemon++;
+                }
+            }
+            if(FaintedPokemon == Party.Count)
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+
     public void Turn(Trainer opponet)
     {
         while (this.SetPokemon.HP > 0 && opponet.SetPokemon.HP > 0)
@@ -73,6 +93,15 @@ public class Trainer
                     Console.Clear();
                     return;
             }
+            AutoTurn(opponet);
+        }
+    }
+
+    public static void AutoTurn(Trainer trainer)
+    {
+        if(trainer.SetPokemon.HP <= 0)
+        {
+            
         }
     }
 

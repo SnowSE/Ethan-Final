@@ -2,6 +2,7 @@ namespace Logic.lib;
 
 public enum Type
 {
+    None,
     Fire,
     Water,
     Grass,

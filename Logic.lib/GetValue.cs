@@ -15,9 +15,11 @@ public static class GetValue
             try
             {
                 var num = int.Parse(Console.ReadLine());
-                
+
                 if (num >= min && num <= max)
                 {
+                    Console.WriteLine("                                                  ");
+                    Console.CursorTop--;
                     return num;
                 }
                 else
@@ -34,7 +36,8 @@ public static class GetValue
 
     public static Type GetType(string Prompt, int cursorTop = 0)
     {
-        while (true)
+        Type returnType = default(Type);
+        while (returnType == default(Type))
         {
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
@@ -44,11 +47,11 @@ public static class GetValue
             var type = Console.ReadLine().ToLower();
             if (type == "normal")
             {
-                return Type.Normal;
+                returnType = Type.Normal;
             }
             else if (type == "fire")
             {
-                return Type.Fire;
+                returnType = Type.Fire;
             }
             else if (type == "water")
             {
@@ -56,69 +59,72 @@ public static class GetValue
             }
             else if (type == "grass")
             {
-                return Type.Grass;
+                returnType = Type.Grass;
             }
             else if (type == "ground")
             {
-                return Type.Ground;
+                returnType = Type.Ground;
             }
             else if (type == "ghost")
             {
-                return Type.Ghost;
+                returnType = Type.Ghost;
             }
             else if (type == "bug")
             {
-                return Type.Bug;
+                returnType = Type.Bug;
             }
             else if (type == "steel")
             {
-                return Type.Steel;
+                returnType = Type.Steel;
             }
             else if (type == "dark")
             {
-                return Type.Dark;
+                returnType = Type.Dark;
             }
             else if (type == "dragon")
             {
-                return Type.Dragon;
+                returnType = Type.Dragon;
             }
             else if (type == "fairy")
             {
-                return Type.Fairy;
+                returnType = Type.Fairy;
             }
             else if (type == "fighting")
             {
-                return Type.Fighting;
+                returnType = Type.Fighting;
             }
             else if (type == "flying")
             {
-                return Type.Flying;
+                returnType = Type.Flying;
             }
             else if (type == "ice")
             {
-                return Type.Ice;
+                returnType = Type.Ice;
             }
             else if (type == "poison")
             {
-                return Type.Poison;
+                returnType = Type.Poison;
             }
             else if (type == "psychic")
             {
-                return Type.Psychic;
+                returnType = Type.Psychic;
             }
             else if (type == "electric")
             {
-                return Type.Electric;
+                returnType = Type.Electric;
             }
             else if (type == "rock")
             {
-                return Type.Rock;
+                returnType = Type.Rock;
             }
             else
             {
                 Console.WriteLine($"Please enter a real typing");
             }
         }
+        Console.WriteLine("                                                  ");
+        Console.CursorTop--;
+        return returnType;
     }
 
     public static string GetString(string Prompt, int minLength, int maxLength, int cursorTop = 0)
@@ -134,6 +140,8 @@ public static class GetValue
                 var strang = Console.ReadLine();
                 if (strang.Length >= minLength && strang.Length <= maxLength)
                 {
+                    Console.WriteLine("                                                  ");
+                    Console.CursorTop--;
                     return strang;
                 }
                 else

@@ -35,6 +35,17 @@ public class Pokemon : IPokemon
         Level = -1;
     }
 
+     public Pokemon(Type typing, string name, int PokedexNum, int _HP, List<Move> newMoves)
+    {
+        Typing = typing;
+        Max_HP = _HP;
+        HP = _HP;
+        this.PokedexNum = PokedexNum;
+        Name = name;
+        Level = -1;
+        Moves = newMoves;
+    }
+
     public Type Typing
     {
         get;
@@ -68,11 +79,22 @@ public class Pokemon : IPokemon
         }
     }
 
-    public List<Move> Moves = new List<Move>()
-    {
-        new Move()     
-    }
-    ;
+    private List<Move> moves = new();
+    public List<Move> Moves{
+        get
+        {
+            if(moves.Count == 0)
+            {
+                return new List<Move>(){new Move()};
+            }
+            return moves;
+        }
+        set
+        {
+            moves = value;
+        }
+        }
+    
     public void Attacked(int attack)
     {
         if (attack <= 0)

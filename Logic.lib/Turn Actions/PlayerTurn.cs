@@ -62,6 +62,6 @@ public static class PlayerTurn
             counter++;
         }
 
-        trainer.Bag[GetValue.GetInt("Please choose the item to use", 0, trainer.Bag.Count, Console.CursorTop)].UseItem(trainer.SetPokemon);
+        trainer.Bag[GetValue.GetInt("Please choose the item to use", 0, trainer.Bag.Count-1, Console.CursorTop)].UseItem(trainer.SetPokemon);
     }
 }
