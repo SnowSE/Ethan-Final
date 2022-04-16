@@ -15,6 +15,7 @@ public class Program
 
         var trainer = new Trainer();
         var fighter = new Trainer();
+        trainer.SetPokemon = new Pokemon(Logic.lib.Type.Fire, "Entei", -1, 200, new List<Move>(){new Move("Kill", 200, Logic.lib.Type.Normal)});
 
         while (true)
         {

@@ -5,12 +5,12 @@ public class Trainer
     public Trainer()
     {
 
+        Party.Add(new Pokemon(Type.Rock, "Lycanroc", 745, 200));
         Party.Add(new Pokemon(Type.Fire, "Monferno", 391, 200));
         Party.Add(new Pokemon(Type.Water, "Prinplup", 394, 200));
         Party.Add(new Pokemon(Type.Flying, "Chatot", 441, 200));
         Party.Add(new Pokemon(Type.Fighting, "Hitmonlee", 106, 200));
         Party.Add(new Pokemon(Type.Grass, "Grotle", 388, 200));
-        Party.Add(new Pokemon(Type.Rock, "Lycanroc", 745, 200));
 
         SetPokemon = Party[Calculator.RandomPokemon()];
 
@@ -67,9 +67,10 @@ public class Trainer
         }
     }
 
+    public string Name = "Youngster Joey";
     public void Turn(Trainer opponet)
     {
-        while (this.SetPokemon.HP > 0 && opponet.SetPokemon.HP > 0)
+        while (this.PartyAlive == true && opponet.PartyAlive == true)
         {
             Console.Clear();
             Console.CursorTop = 1;
@@ -101,8 +102,10 @@ public class Trainer
     {
         if(trainer.SetPokemon.HP <= 0)
         {
-            
+            PlayerTurn.RandomSwitchPokemon(trainer);
+            return;
         }
+        PlayerTurn.RandomAttackPokemon(trainer.SetPokemon);
     }
 
 
