@@ -186,7 +186,7 @@ public class Tests
         }
         trainer.Party = team;
         trainer.SetPokemon = trainer.Party[0];
-        Trainer.AutoTurn(trainer);
+        Trainer.AutoTurn(trainer, trainer.SetPokemon);
         Assert.AreEqual(trainer.SetPokemon.HP, 0);
     }
 
@@ -206,7 +206,7 @@ public class Tests
         }
         trainer.Party = team;
         trainer.SetPokemon = trainer.Party[0];
-        Trainer.AutoTurn(trainer);
+        Trainer.AutoTurn(trainer, trainer.SetPokemon);
         Assert.AreEqual(trainer.SetPokemon.HP, 1);
     }
 
@@ -226,7 +226,7 @@ public class Tests
         }
         trainer.Party = team;
         trainer.SetPokemon = trainer.Party[0];
-        Trainer.AutoTurn(trainer);
+        Trainer.AutoTurn(trainer, trainer.SetPokemon);
         Assert.AreEqual(trainer.SetPokemon.HP, 1);
     }
 

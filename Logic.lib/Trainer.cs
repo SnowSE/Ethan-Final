@@ -70,6 +70,7 @@ public class Trainer
     public string Name = "Youngster Joey";
     public void Turn(Trainer opponet)
     {
+        int Damage;
         while (this.PartyAlive == true && opponet.PartyAlive == true)
         {
             Console.Clear();
@@ -82,7 +83,8 @@ public class Trainer
             switch (num)
             {
                 case 0:
-                    PlayerTurn.Attack(this, opponet.SetPokemon);
+                    PlayerTurn.Attack(this, opponet.SetPokemon, out Damage);
+                    Console.WriteLine($"You dealt {Damage} damagae to {opponet.SetPokemon.Name}");
                     break;
                 case 1:
                     PlayerTurn.ChangePokemon(this);
@@ -94,18 +96,18 @@ public class Trainer
                     Console.Clear();
                     return;
             }
-            AutoTurn(opponet);
+            AutoTurn(opponet, this.SetPokemon);
         }
     }
 
-    public static void AutoTurn(Trainer trainer)
+    public static void AutoTurn(Trainer trainer, Pokemon opponentPokemon)
     {
         if(trainer.SetPokemon.HP <= 0)
         {
             PlayerTurn.RandomSwitchPokemon(trainer);
             return;
         }
-        PlayerTurn.RandomAttackPokemon(trainer.SetPokemon);
+        PlayerTurn.RandomAttackPokemon(trainer.SetPokemon, opponentPokemon);
     }
 
 

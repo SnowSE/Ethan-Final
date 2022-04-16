@@ -8,6 +8,7 @@ public class Potion : BaseItem
     }
     public override void UseItem(Pokemon pokemon)
     {
+        int healAmmount = 0;
         if(Uses <= 0)
         {
             base.UseItem(pokemon);
@@ -18,18 +19,26 @@ public class Potion : BaseItem
             pokemon.Heal(pokemon.Max_HP);
             break;
             case Strength.Hyper:
-            pokemon.Heal(200);
+            healAmmount = 200;
             break;
             case Strength.Super:
-            pokemon.Heal(50);
+            healAmmount = 50;
             break;
             case Strength.Basic:
-            pokemon.Heal(20);
+            healAmmount = 20;
             break;
             default:
             break;
         }
         Uses--;
+        if(healAmmount == 0)
+        {
+            Console.WriteLine("Your Pokemon is fully healed!");
+        }
+        else
+        {
+            Console.WriteLine($"Your Pokemon healed {healAmmount}HP");
+        }
     }
 
     public override string ToString()
