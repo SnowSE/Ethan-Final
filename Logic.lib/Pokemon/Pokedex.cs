@@ -1,6 +1,6 @@
 namespace Logic.lib;
 
-public static class Pokedex
+public class Pokedex
 {
     public static void AddPokemon()
     {

@@ -8,6 +8,14 @@ public static class GetValue
     {
         while (true)
         {
+            if (Console.WindowHeight < 20)
+            {
+                Console.Clear();
+                Console.WriteLine("Please Expand the window");
+                while (Console.WindowHeight < 20)
+                {
+                }
+            }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
             Console.WriteLine("                                                        \n\n\n");
@@ -29,8 +37,10 @@ public static class GetValue
             }
             catch
             {
-                Console.WriteLine("Please Enter a number");
+                Console.WriteLine("Please Enter a number                       ");
             }
+            Console.WriteLine("                                                  ");
+            Console.CursorTop--;
         }
     }
 
@@ -39,6 +49,14 @@ public static class GetValue
         Type returnType = default(Type);
         while (returnType == default(Type))
         {
+            if (Console.WindowHeight < 20)
+            {
+                Console.Clear();
+                Console.WriteLine("Please Expand the window");
+                while (Console.WindowHeight < 20)
+                {
+                }
+            }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
             Console.WriteLine("                                                        \n\n\n");
@@ -131,12 +149,21 @@ public static class GetValue
     {
         while (true)
         {
+            if (Console.WindowHeight < 20)
+            {
+                Console.Clear();
+                Console.WriteLine("Please Expand the window");
+                while (Console.WindowHeight < 20)
+                {
+                }
+            }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
             Console.WriteLine("                                                        \n\n\n");
             Console.CursorTop -= 4;
             try
             {
+
                 var strang = Console.ReadLine();
                 if (strang.Length >= minLength && strang.Length <= maxLength)
                 {
@@ -146,7 +173,7 @@ public static class GetValue
                 }
                 else
                 {
-                    Console.WriteLine($"Don't enter nothing and dont enter too much");
+                    Console.WriteLine($"Don't enter too little and dont enter too much");
                 }
             }
             catch
