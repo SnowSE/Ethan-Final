@@ -8,13 +8,14 @@ public static class GetValue
     {
         while (true)
         {
-            if (Console.WindowHeight < 20)
+            if (Console.WindowHeight < 30)
             {
                 Console.Clear();
                 Console.WriteLine("Please Expand the window");
-                while (Console.WindowHeight < 20)
+                while (Console.WindowHeight < 30)
                 {
                 }
+                Console.Clear();
             }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
@@ -49,13 +50,14 @@ public static class GetValue
         Type returnType = default(Type);
         while (returnType == default(Type))
         {
-            if (Console.WindowHeight < 20)
+            if (Console.WindowHeight < 30)
             {
                 Console.Clear();
                 Console.WriteLine("Please Expand the window");
-                while (Console.WindowHeight < 20)
+                while (Console.WindowHeight < 30)
                 {
                 }
+                Console.Clear();
             }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);
@@ -149,13 +151,14 @@ public static class GetValue
     {
         while (true)
         {
-            if (Console.WindowHeight < 20)
+            if (Console.WindowHeight < 30)
             {
                 Console.Clear();
                 Console.WriteLine("Please Expand the window");
-                while (Console.WindowHeight < 20)
+                while (Console.WindowHeight < 30)
                 {
                 }
+                Console.Clear();
             }
             Console.CursorTop = cursorTop;
             Console.WriteLine(Prompt);

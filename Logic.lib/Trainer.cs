@@ -5,12 +5,66 @@ public class Trainer
     public Trainer()
     {
 
-        Party.Add(new Pokemon(Type.Rock, "Lycanroc", 745, 200));
-        Party.Add(new Pokemon(Type.Fire, "Monferno", 391, 200));
-        Party.Add(new Pokemon(Type.Water, "Prinplup", 394, 200));
-        Party.Add(new Pokemon(Type.Flying, "Chatot", 441, 200));
-        Party.Add(new Pokemon(Type.Fighting, "Hitmonlee", 106, 200));
-        Party.Add(new Pokemon(Type.Grass, "Grotle", 388, 200));
+        Party.Add(new Pokemon(Type.Rock, "Lycanroc", 745, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Rock Smash", 30, Type.Rock), 
+                new Move("Sucker Punch", 35, Type.Dark),
+                new Move("Zen Headbutt", 32, Type.Psychic), 
+                new Move("Close Combat", 50, Type.Fighting)
+            }
+        });
+        Party.Add(new Pokemon(Type.Fire, "Infernape", 392, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Mach Punch", 40, Type.Fighting), 
+                new Move("Flamethrower", 45, Type.Fire),
+                new Move("Acrobatics", 27, Type.Flying), 
+                new Move("Shadow CLaw", 35, Type.Ghost)
+            }
+        });
+        Party.Add(new Pokemon(Type.Water, "Empoleon", 395, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Flash Cannon", 40, Type.Steel), 
+                new Move("Water Pulse", 30, Type.Water),
+                new Move("Ice Beam", 45, Type.Ice), 
+                new Move("Brick Break", 37, Type.Fighting)
+            }
+        });
+        Party.Add(new Pokemon(Type.Dragon, "Garchomp", 445, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Outrage", 40, Type.Dragon), 
+                new Move("Earth Power", 40, Type.Ground),
+                new Move("Poison Jab", 40, Type.Poison), 
+                new Move("Shadow Claw", 35, Type.Ghost)
+            }
+        });
+        Party.Add(new Pokemon(Type.Fairy, "Jigglypuff", 39, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Play Rough", 45, Type.Fairy), 
+                new Move("Hyper Voice", 45, Type.Normal),
+                new Move("Ice Punch", 37, Type.Ice), 
+                new Move("Thuderbolt", 45, Type.Electric)
+            }
+        });
+        Party.Add(new Pokemon(Type.Grass, "Torterra", 3889, 200)
+        {
+            Moves = new List<Move>()
+            {
+                new Move("Wood Hammer", 60, Type.Grass), 
+                new Move("Bulldoze", 30, Type.Ground),
+                new Move("Rock Slide", 37, Type.Rock), 
+                new Move("Rock Smash", 20, Type.Fighting)
+            }
+        });
 
         SetPokemon = Party[Calculator.RandomPokemon()];
 

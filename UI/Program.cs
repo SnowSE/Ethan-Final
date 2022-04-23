@@ -8,14 +8,20 @@ public class Program
 {
     public static void Main()
     {
+        if (Console.WindowHeight < 30)
+        {
+            Console.Clear();
+            Console.WriteLine("Please Expand the window");
+            while (Console.WindowHeight < 30)
+            {
+            }
+        }
         Console.Clear();
-
-        Console.WriteLine("This is the start of a pokemon battle simulator. Right now there are only a few things that can be done.\nYou can change your pokemon.\nYou only have a single attack and you only have a single potion.\nYou can now create pokemon that will be serialized into a list.");
+        Console.WriteLine("This is the a pokemon battle simulator. \nYou can also create pokemon\n(If you've ever played pokemon you'd know that the battles aren't one to one. \nI know, it's not perfect.)\nHave fun nonetheless!");
 
 
         var trainer = new Trainer();
         var fighter = new Trainer();
-        trainer.SetPokemon = new Pokemon(Logic.lib.Type.Fire, "Entei", -1, 200, new List<Move>(){new Move("Kill", 200, Logic.lib.Type.Normal)});
 
         while (true)
         {
@@ -32,7 +38,7 @@ public class Program
             {
                 Pokedex.AddPokemon();
             }
-            else if( firstChoice == 1)
+            else if (firstChoice == 1)
             {
                 Pokedex.ViewPokedex();
             }
