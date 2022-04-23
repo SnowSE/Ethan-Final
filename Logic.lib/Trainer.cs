@@ -130,7 +130,7 @@ public class Trainer
             Console.Clear();
             Console.CursorTop = 1;
             Console.WriteLine($"The pokemon you have sent out is {SetPokemon.Name} {SetPokemon.HP}/{SetPokemon.Max_HP}");
-            Console.CursorTop += 19;
+            Console.CursorTop = 25;
             Console.WriteLine($"Your opponent has sent out {opponet.SetPokemon.Name} {opponet.SetPokemon.HP}/{opponet.SetPokemon.Max_HP}HP");
             Console.CursorTop = 3;
             var num = GetValue.GetInt("Please choose the option you would like...\n0: Attack\n1: Change Pokemon\n2: Use Items\n3: You're done", 0, 3, Console.CursorTop);
@@ -150,6 +150,7 @@ public class Trainer
                     Console.Clear();
                     return;
             }
+            Console.WriteLine("Youngster Joey's Turn");
             AutoTurn(opponet, this.SetPokemon);
         }
     }
@@ -282,7 +283,7 @@ public class Trainer
         ChosenMove.Attack(pokemon.Typing, opponentPokemon, Modifier, out Damage);
 
         Console.WriteLine($"Youngster Joey's {pokemon.Name} dealt {Damage} damage to your {opponentPokemon.Name}");
-
+        Console.ReadLine();
         Console.Clear();
     }
 
