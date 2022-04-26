@@ -45,6 +45,7 @@ public class Program
             else if(firstChoice == 3)
             {
                 trainer.SwitchPartyMember();
+                Console.WriteLine("I'm working on it, do other things please");
             }
             else
             {

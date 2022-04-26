@@ -75,7 +75,6 @@ public class Move
         {
             Console.WriteLine("The attack hit!");
         }
-        Console.ReadLine();
     }
 
     public void Attack(Type pokemonType, Pokemon attackedPokemon, double Effectivness)

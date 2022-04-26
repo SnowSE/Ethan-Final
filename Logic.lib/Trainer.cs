@@ -241,7 +241,7 @@ public class Trainer
         //This will be console dependent
         foreach (var item in trainer.Bag)
         {
-            Console.WriteLine($"{counter}: {item.ToString()} {item.Uses}");
+            Console.WriteLine($"{counter}: {item.ToString()} - {item.Uses}");
             counter++;
         }
 
@@ -282,14 +282,13 @@ public class Trainer
 
         ChosenMove.Attack(pokemon.Typing, opponentPokemon, Modifier, out Damage);
 
-        Console.WriteLine($"Youngster Joey's {pokemon.Name} dealt {Damage} damage to your {opponentPokemon.Name}");
+        Console.WriteLine($"Youngster Joey's {pokemon.Name} used {ChosenMove.Name} and dealt {Damage} damage to your {opponentPokemon.Name}");
         Console.ReadLine();
         Console.Clear();
     }
 
     public void SwitchPartyMember()
     {
-
 
     }
 

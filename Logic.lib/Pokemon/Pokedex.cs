@@ -2,25 +2,23 @@ namespace Logic.lib;
 
 public class Pokedex
 {
+    public static List<Pokemon> Pokemen = Commands.PokemonDeserialize();
     public static void AddPokemon()
     {
-        var Pokemons = Commands.PokemonDeserialize();
-
         var pokemon = PokemonFactory.Create();
 
-        Pokemons.Add(pokemon);
+        Pokemen.Add(pokemon);
 
-        Commands.PokemonSerialize(Pokemons);
+        Commands.PokemonSerialize(Pokemen);
     }
 
     public static void ViewPokedex()
     {
         string? input;
         Console.Clear();
-        var Pokemons = Commands.PokemonDeserialize();
 
         var SortedPokemon =
-            from pokemon in Pokemons
+            from pokemon in Pokemen
             orderby pokemon.PokedexNum
             select new
             {
@@ -38,7 +36,7 @@ public class Pokedex
             input = Console.ReadLine()?.ToLower();
             if (input == "yes" || input == "y")
             {
-                Console.WriteLine(ChoosePokemon(Pokemons).ToString());
+                Console.WriteLine(ChoosePokemon(Pokemen).ToString());
             }
             else
             {
@@ -49,17 +47,28 @@ public class Pokedex
 
     public static Pokemon ChoosePokemon(List<Pokemon> Pokemen)
     {
+        Pokemon? desiredPokemon = default(Pokemon);
         while (true)
         {
             int desiredPDN = GetValue.GetInt("Please enter the pokedex number associated with your pokemon. (number next to your pokemon)", 0, 906, Console.CursorTop);
-            foreach (var pokemon in Pokemen)
+            desiredPokemon = FindPokemon(desiredPDN);
+            if(desiredPokemon != default(Pokemon))
             {
-                if (pokemon.PokedexNum == desiredPDN)
-                {
-                    return pokemon;
-                }
+                return desiredPokemon;
             }
-            Console.WriteLine("Please enter a valid pokedex number");
+            Console.WriteLine("Please enter a valid pokedex number next");
         }
+    }
+
+    public static Pokemon FindPokemon(int PDN)
+    {
+        foreach (var pokemon in Pokemen)
+        {
+            if (pokemon.PokedexNum == PDN)
+            {
+                return pokemon;
+            }
+        }
+        return default(Pokemon);
     }
 }
