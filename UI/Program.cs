@@ -26,7 +26,7 @@ public class Program
         while (true)
         {
 
-            var firstChoice = GetValue.GetInt("[0] Make a pokemon\n[1] View the pokemon\n[2] Fight\n[3] Finish", 0, 3, Console.CursorTop);
+            var firstChoice = GetValue.GetInt("[0] Make a pokemon\n[1] View the pokemon\n[2] Fight\n[3] Change party for the fight\n[4] Finish", 0, 4, Console.CursorTop);
 
 
 
@@ -41,6 +41,10 @@ public class Program
             else if (firstChoice == 1)
             {
                 Pokedex.ViewPokedex();
+            }
+            else if(firstChoice == 3)
+            {
+                trainer.SwitchPartyMember();
             }
             else
             {

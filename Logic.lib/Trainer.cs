@@ -9,9 +9,9 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Rock Smash", 30, Type.Rock), 
+                new Move("Rock Smash", 30, Type.Rock),
                 new Move("Sucker Punch", 35, Type.Dark),
-                new Move("Zen Headbutt", 32, Type.Psychic), 
+                new Move("Zen Headbutt", 32, Type.Psychic),
                 new Move("Close Combat", 50, Type.Fighting)
             }
         });
@@ -19,9 +19,9 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Mach Punch", 40, Type.Fighting), 
+                new Move("Mach Punch", 40, Type.Fighting),
                 new Move("Flamethrower", 45, Type.Fire),
-                new Move("Acrobatics", 27, Type.Flying), 
+                new Move("Acrobatics", 27, Type.Flying),
                 new Move("Shadow CLaw", 35, Type.Ghost)
             }
         });
@@ -29,9 +29,9 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Flash Cannon", 40, Type.Steel), 
+                new Move("Flash Cannon", 40, Type.Steel),
                 new Move("Water Pulse", 30, Type.Water),
-                new Move("Ice Beam", 45, Type.Ice), 
+                new Move("Ice Beam", 45, Type.Ice),
                 new Move("Brick Break", 37, Type.Fighting)
             }
         });
@@ -39,9 +39,9 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Outrage", 40, Type.Dragon), 
+                new Move("Outrage", 40, Type.Dragon),
                 new Move("Earth Power", 40, Type.Ground),
-                new Move("Poison Jab", 40, Type.Poison), 
+                new Move("Poison Jab", 40, Type.Poison),
                 new Move("Shadow Claw", 35, Type.Ghost)
             }
         });
@@ -49,9 +49,9 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Play Rough", 45, Type.Fairy), 
+                new Move("Play Rough", 45, Type.Fairy),
                 new Move("Hyper Voice", 45, Type.Normal),
-                new Move("Ice Punch", 37, Type.Ice), 
+                new Move("Ice Punch", 37, Type.Ice),
                 new Move("Thuderbolt", 45, Type.Electric)
             }
         });
@@ -59,16 +59,16 @@ public class Trainer
         {
             Moves = new List<Move>()
             {
-                new Move("Wood Hammer", 60, Type.Grass), 
+                new Move("Wood Hammer", 60, Type.Grass),
                 new Move("Bulldoze", 30, Type.Ground),
-                new Move("Rock Slide", 37, Type.Rock), 
+                new Move("Rock Slide", 37, Type.Rock),
                 new Move("Rock Smash", 20, Type.Fighting)
             }
         });
 
         SetPokemon = Party[Calculator.RandomPokemon()];
 
-        Bag.Add(new Potion(10) { strength = Strength.Hyper});
+        Bag.Add(new Potion(10) { strength = Strength.Hyper });
 
     }
 
@@ -101,19 +101,19 @@ public class Trainer
     public List<Pokemon> Party = new List<Pokemon>();
     public List<BaseItem> Bag = new List<BaseItem>();
 
-    public bool PartyAlive 
+    public bool PartyAlive
     {
         get
         {
             int FaintedPokemon = 0;
-            foreach(var pokemon in Party)
+            foreach (var pokemon in Party)
             {
-                if(pokemon.HP <= 0)
+                if (pokemon.HP <= 0)
                 {
                     FaintedPokemon++;
                 }
             }
-            if(FaintedPokemon == Party.Count)
+            if (FaintedPokemon == Party.Count)
             {
                 return false;
             }
@@ -157,7 +157,7 @@ public class Trainer
 
     public static void AutoTurn(Trainer trainer, Pokemon opponentPokemon)
     {
-        if(trainer.SetPokemon.HP <= 0)
+        if (trainer.SetPokemon.HP <= 0)
         {
             RandomSwitchPokemon(trainer);
             return;
@@ -227,7 +227,7 @@ public class Trainer
             Console.WriteLine($"{counter}: {pokemon.Name} {pokemon.HP}hp/{pokemon.Max_HP}HP");
             counter++;
         }
-        
+
         var choice = trainer.Party[GetValue.GetInt("Please choose your pokemon to switch to", 0, trainer.Party.Count, Console.CursorTop)];
 
         trainer.SetPokemon = choice;
@@ -269,7 +269,7 @@ public class Trainer
         }
     }
 
-    public static void RandomAttackPokemon(Pokemon pokemon, Pokemon opponentPokemon )
+    public static void RandomAttackPokemon(Pokemon pokemon, Pokemon opponentPokemon)
     {
         int Damage;
 
@@ -285,6 +285,12 @@ public class Trainer
         Console.WriteLine($"Youngster Joey's {pokemon.Name} dealt {Damage} damage to your {opponentPokemon.Name}");
         Console.ReadLine();
         Console.Clear();
+    }
+
+    public void SwitchPartyMember()
+    {
+
+
     }
 
 

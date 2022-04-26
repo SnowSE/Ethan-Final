@@ -139,10 +139,10 @@ public static class GetValue
             }
             else
             {
-                Console.WriteLine($"Please enter a real typing");
+                Console.WriteLine($"Please enter a typing, an example would be grass, water, or fire");
             }
         }
-        Console.WriteLine("                                                  ");
+        Console.WriteLine("                                                                                 ");
         Console.CursorTop--;
         return returnType;
     }
