@@ -2,8 +2,8 @@ namespace Logic.lib;
 
 public class Move
 {
-    private string name = "Tackle [Not Changed]";
-    private int power = 20;
+    private string name = "Not Used";
+    private int power = -1;
     private Type moveType = Type.Normal;
 
     public Move()
@@ -98,5 +98,14 @@ public class Move
             Console.WriteLine("The attack hit!");
         }
         Console.ReadLine();
+    }
+
+    public override string ToString()
+    {
+        if(Name == "Not Used" && Power == -1 && MoveType == Type.Normal)
+        {
+            return "";
+        }
+        return $"\n{Name}: {MoveType} - Power[{Power}]";
     }
 }

@@ -125,4 +125,15 @@ public class Pokemon : IPokemon
         move.Attack(Typing, OpponetPokemon, 1);
     }
 
+    public override string ToString()
+    {
+        string log = "";
+        log += $"{Name} [lvl: {Level}]\nTyping: {Typing}\nMoves include:";
+        foreach(var move in moves)
+        {
+            log += $"{move.ToString()}";
+        }
+        log += "\n";
+        return log;
+    }
 }

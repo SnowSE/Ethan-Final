@@ -38,7 +38,7 @@ public class Pokedex
             input = Console.ReadLine()?.ToLower();
             if (input == "yes" || input == "y")
             {
-                ChoosePokemon(Pokemons).ToString();
+                Console.WriteLine(ChoosePokemon(Pokemons).ToString());
             }
             else
             {
@@ -61,7 +61,5 @@ public class Pokedex
             }
             Console.WriteLine("Please enter a valid pokedex number");
         }
-
-
     }
 }
