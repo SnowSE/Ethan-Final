@@ -139,8 +139,7 @@ public class Tests
     public void RevampAttackWithNormalMove()
     {
         var Heatran = new Pokemon(Logic.lib.Type.Fire);
-        Heatran.Moves.Clear();
-        Heatran.Moves.Add(new Move() { Power = 50 });
+        Heatran.Moves = new List<Move>(){new Move("base", 50, Logic.lib.Type.Normal)};
         Heatran.Moves[0].Attack(Heatran.Typing, Heatran, 1);
         Assert.AreEqual(Heatran.HP, 150);
     }

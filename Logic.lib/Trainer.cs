@@ -152,6 +152,7 @@ public class Trainer
             }
             Console.WriteLine("Youngster Joey's Turn");
             AutoTurn(opponet, this.SetPokemon);
+            Console.ReadLine();
         }
     }
 
@@ -261,7 +262,6 @@ public class Trainer
             if (pokemon.HP > 0)
             {
                 Console.WriteLine($"{trainer.SetPokemon.Name} has fainted! {trainer.Name} sent out {pokemon.Name}");
-                Console.ReadLine();
                 trainer.SetPokemon = pokemon;
                 return;
             }
@@ -283,7 +283,6 @@ public class Trainer
         ChosenMove.Attack(pokemon.Typing, opponentPokemon, Modifier, out Damage);
 
         Console.WriteLine($"Youngster Joey's {pokemon.Name} used {ChosenMove.Name} and dealt {Damage} damage to your {opponentPokemon.Name}");
-        Console.ReadLine();
         Console.Clear();
     }
 

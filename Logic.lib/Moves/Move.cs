@@ -96,7 +96,6 @@ public class Move
         {
             Console.WriteLine("The attack hit!");
         }
-        Console.ReadLine();
     }
 
     public override string ToString()
