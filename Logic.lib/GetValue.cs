@@ -185,4 +185,21 @@ public static class GetValue
             }
         }
     }
+
+    public static int GetNewPokedexNum()
+    {
+        int ChosenPokedexNum = 1;
+        while (Pokedex.FindPokemon(ChosenPokedexNum) != default(Pokemon))
+        {
+            if(Pokedex.FindPokemon(GetInt("Enter the Pokemons new pokedex number", 1, 906, Console.CursorTop)) == default(Pokemon))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a pokedex number that isn't used");
+            }
+        }
+        return ChosenPokedexNum;
+    }
 }

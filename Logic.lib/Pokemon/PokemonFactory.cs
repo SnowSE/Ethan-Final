@@ -22,25 +22,16 @@ public static class PokemonFactory
 
         if (foundPokemon != default(Pokemon))
         {
-
             Console.WriteLine($"Would you like to override {foundPokemon.Name} from the pokedex? [y/n]");
-            if (Console.ReadLine().ToLower() == "y" || Console.ReadLine().ToLower() == "yes")
+            string choice = Console.ReadLine().ToLower();
+            if (choice == "y" || choice == "yes")
             {
-                Pokedex.RemovePokemon(pokedexNum);
                 Console.WriteLine($"Say goodbye to `{foundPokemon.Name}! They will be missed");
+                Pokedex.RemovePokemon(pokedexNum);
             }
             else
             {
-                while (true)
-                {
-                    Console.WriteLine("Please Enter a new Pokedex Number");
-                    secondPokedexNum = GetValue.GetInt("Enter the Pokemons new pokedex number", 1, 906, Console.CursorTop);
-                    if(secondPokedexNum != pokedexNum)
-                    {
-                        pokedexNum = secondPokedexNum;
-                        break;
-                    }
-                }
+                pokedexNum = GetValue.GetNewPokedexNum();
             }
         }
 
