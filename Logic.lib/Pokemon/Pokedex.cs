@@ -71,4 +71,14 @@ public class Pokedex
         }
         return default(Pokemon);
     }
+
+    public static void RemovePokemon(int PDN)
+    {
+        Pokemon removedPokemon = FindPokemon(PDN);
+
+        Pokemen.Remove(removedPokemon);
+
+        Commands.PokemonSerialize(Pokemen);
+    }
+
 }

@@ -15,7 +15,7 @@ public static class MovesFactory
         Console.WriteLine("Now you will Choose the moves for your pokemon. If you would like to stop making moves enter a negative power");
         for (int i = 0; i < 4; i++)
         {
-            power = GetValue.GetInt("Please enter the power of the move (this is a number to calculate how much damage you do", int.MinValue, 100, Console.CursorTop);
+            power = GetValue.GetInt("Please enter the power of the move (this is a number to calculate how much damage you do)", int.MinValue, 100, Console.CursorTop);
             if (power < 0)
             {
                 Done = true;

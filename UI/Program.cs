@@ -8,6 +8,7 @@ public class Program
 {
     public static void Main()
     {
+        
         if (Console.WindowHeight < 30)
         {
             Console.Clear();
