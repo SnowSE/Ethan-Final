@@ -93,7 +93,7 @@ public class Trainer
                     break;
                 case 3:
                     Console.Clear();
-                    return;
+                    return;                    
             }
             Console.WriteLine("Youngster Joey's Turn");
             AutoTurn(opponet, this.SetPokemon);
@@ -160,7 +160,6 @@ public class Trainer
 
         ChosenMove.Attack(trainer.SetPokemon.Typing, attackedPokemon, Modifier);
 
-        Console.Clear();
 
     }
 
@@ -228,7 +227,6 @@ public class Trainer
         ChosenMove.Attack(pokemon.Typing, opponentPokemon, Modifier, out Damage);
 
         Console.WriteLine($"Youngster Joey's {pokemon.Name} used {ChosenMove.Name} and dealt {Damage} damage to your {opponentPokemon.Name}");
-        Console.Clear();
     }
 
     public void SwitchPartyMember()

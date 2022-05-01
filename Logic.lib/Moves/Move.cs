@@ -58,7 +58,7 @@ public class Move
     public void Attack(Type pokemonType, Pokemon attackedPokemon, double Effectivness, out int Damage)
     {
         Damage = (int)(Power * Effectivness);
-        attackedPokemon.Attacked(Damage); // remember 23
+        attackedPokemon.Attacked(Damage); 
         if (Effectivness == 2)
         {
             Console.WriteLine("It's Super Effective!!");
